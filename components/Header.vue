@@ -3,7 +3,7 @@
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <!-- Logo -->
       <NuxtLink to="/" class="block h-8"> <!-- Adjust height as needed -->
-        <img src="~/assets/images/logo.PNG" alt="페르323 로고" class="h-full w-auto">
+        <img src="~/assets/images/logo.PNG" alt="페르323 로고" class="h-full w-[100px] object-contain">
       </NuxtLink>
 
       <!-- Navigation -->

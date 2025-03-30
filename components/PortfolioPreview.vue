@@ -26,14 +26,19 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import portfolioImg1 from '~/assets/images/portfolio_01.jpg'
+import portfolioImg2 from '~/assets/images/portfolio_02.jpg'
+import portfolioImg3 from '~/assets/images/portfolio_03.jpg'
+import portfolioImg4 from '~/assets/images/portfolio_04.jpg'
+import portfolioImg5 from '~/assets/images/portfolio_05.jpg'
 
 // Placeholder data - replace with actual data fetching logic (e.g., from Firestore)
 const recentPortfolios = ref([
-  { id: 1, title: '모던 미니멀 하우스', type: '아파트', size: '32평', budget: '5000만원', imageUrl: '~/assets/images/portfolio_01.jpg' },
-  { id: 2, title: '따뜻한 내추럴 홈', type: '빌라', size: '45평', budget: '7000만원', imageUrl: '~/assets/images/portfolio_02.jpg' },
-  { id: 3, title: '세련된 도시 아파트', type: '아파트', size: '24평', budget: '4000만원', imageUrl: '~/assets/images/portfolio_03.jpg' },
-  { id: 4, title: '클래식 프렌치 스타일', type: '단독주택', size: '60평', budget: '1억원', imageUrl: '~/assets/images/portfolio_04.jpg' },
-  { id: 5, title: '감각적인 스튜디오', type: '오피스텔', size: '15평', budget: '3000만원', imageUrl: '~/assets/images/portfolio_05.jpg' },
+  { id: 1, title: '모던 미니멀 하우스', type: '아파트', size: '32평', budget: '5000만원', imageUrl: portfolioImg1 },
+  { id: 2, title: '따뜻한 내추럴 홈', type: '빌라', size: '45평', budget: '7000만원', imageUrl: portfolioImg2 },
+  { id: 3, title: '세련된 도시 아파트', type: '아파트', size: '24평', budget: '4000만원', imageUrl: portfolioImg3 },
+  { id: 4, title: '클래식 프렌치 스타일', type: '단독주택', size: '60평', budget: '1억원', imageUrl: portfolioImg4 },
+  { id: 5, title: '감각적인 스튜디오', type: '오피스텔', size: '15평', budget: '3000만원', imageUrl: portfolioImg5 },
 ])
 
 // Add logic for carousel functionality if needed (e.g., using a library)

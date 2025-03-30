@@ -10,8 +10,8 @@
 
 <script lang="ts" setup>
 // Import components - Header and Footer will be created in the next steps
-import Header from '~/components/Header.vue'
-import Footer from '~/components/Footer.vue'
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 
 // You can add global setup logic here if needed
 </script>
