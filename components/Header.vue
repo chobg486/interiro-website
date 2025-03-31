@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white shadow-md sticky top-0 z-50">
+  <header :class="{'scrolled': isScrolled}" class="shadow-md sticky top-0 z-50">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <!-- Logo -->
       <NuxtLink to="/" class="block h-8"> <!-- Adjust height as needed -->
@@ -8,11 +8,11 @@
 
       <!-- Navigation -->
       <nav class="hidden md:flex space-x-6">
-        <NuxtLink to="/" class="text-gray-600 hover:text-gray-900">홈</NuxtLink>
-        <NuxtLink to="/portfolio" class="text-gray-600 hover:text-gray-900">포트폴리오</NuxtLink>
-        <NuxtLink to="/company" class="text-gray-600 hover:text-gray-900">회사소개</NuxtLink>
-        <NuxtLink to="/service" class="text-gray-600 hover:text-gray-900">서비스소개</NuxtLink>
-        <NuxtLink to="/contact" class="text-gray-600 hover:text-gray-900">문의하기</NuxtLink>
+        <NuxtLink to="/" class="nav-link">홈</NuxtLink>
+        <NuxtLink to="/portfolio" class="nav-link">포트폴리오</NuxtLink>
+        <NuxtLink to="/company" class="nav-link">회사소개</NuxtLink>
+        <NuxtLink to="/service" class="nav-link">서비스소개</NuxtLink>
+        <NuxtLink to="/contact" class="nav-link">문의하기</NuxtLink>
       </nav>
 
       <!-- Login Button -->
@@ -49,9 +49,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const isMobileMenuOpen = ref(false)
+const isScrolled = ref(false)
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
@@ -60,11 +61,48 @@ const toggleMobileMenu = () => {
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false
 }
+
+const handleScroll = () => {
+  if (window.scrollY > 50) {
+    isScrolled.value = true
+  } else {
+    isScrolled.value = false
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <style scoped>
 /* Add specific styles for the header if needed */
-.sticky {
-  position: sticky;
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+header.scrolled {
+  position: fixed;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 50; /* Ensure it stays on top */
+}
+
+.nav-link {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+header.scrolled .nav-link {
+  color: #6b7280; /* Gray-600 */
 }
 </style>
